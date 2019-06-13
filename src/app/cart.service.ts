@@ -1,5 +1,6 @@
 import { Injectable,EventEmitter,Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
    providedIn: 'root'
@@ -8,12 +9,14 @@ export class CartService {
 
   constructor( private http: HttpClient ) { }
   items = [];
+  productNo = new Subject();
+  price;
 
-    @Output() noOfItems = new EventEmitter();
+   noOfItems = 1;
 
 
-  addToCart(product){
-
+  addToCart(product) {
+    this.productNo.next(this.noOfItems++);
     this.items.push(product);
   }
 
@@ -26,5 +29,8 @@ export class CartService {
   }
   getShippingPrices() {
     return this.http.get('/assets/shipping.json');
+  }
+  shipppingPrice(cost) {
+    this.price = cost;
   }
 }

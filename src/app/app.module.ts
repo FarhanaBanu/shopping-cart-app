@@ -5,14 +5,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductListComponent, DialogOverviewExampleDialogComponent } from './product-list/product-list.component';
 import { ProductAlertComponent } from './product-alert/product-alert.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
-// import {MatBadgeModule} from '@angular/material/badge';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+// import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 
 
 @NgModule({
@@ -20,7 +27,12 @@ import { ShippingComponent } from './shipping/shipping.component';
     BrowserModule,
     ReactiveFormsModule,
      HttpClientModule,
-    //  MatBadgeModule,
+     MatBadgeModule,
+     MatIconModule,
+     MatDialogModule,
+     BrowserAnimationsModule,
+     MatTooltipModule,
+  
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent},
@@ -35,8 +47,12 @@ import { ShippingComponent } from './shipping/shipping.component';
     ProductAlertComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    DialogOverviewExampleDialogComponent
   ],
+  entryComponents: [
+    DialogOverviewExampleDialogComponent
+ ],
   bootstrap: [ AppComponent ],
   providers: [CartService]
 })

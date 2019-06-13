@@ -2,6 +2,7 @@
 
 
 <div *ngFor="let product of products;index as productId">
+  <div class="product">
   <h3>
         <a [title]="product.name + ' details'" [routerLink]="['/products' , productId]" >
       {{ product.name }}
@@ -11,12 +12,13 @@
   <p *ngIf="product.description">
     Description: {{ product.description }}
   </p>
-   <button (click)="share()">
+   <button (click)="openDialog();share()">
     Share
   </button>
- 
-<app-product-alert
-  [product]="product">
-</app-product-alert>
 
+
+<app-product-alert
+  [product]="product" (notify)="onNotify()">
+</app-product-alert>
+</div> 
 </div>

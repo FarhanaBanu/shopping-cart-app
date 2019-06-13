@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* Global Styles */
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import "theme.scss";
+@include mat-core();
+@include angular-material-theme($my-theme);
 
 * {
     font-family: 'Roboto', Arial, sans-serif;
@@ -127,8 +131,8 @@
   
   .cart-item, .shipping-item {
     width: 100%;
-    min-width: 400px;
-    max-width: 450px;
+    min-width: 600px;
+    max-width: 650px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -138,9 +142,16 @@
     background-color: #EEEEEE;
   }
   
+  .product{
+    border :2px solid #1976d2;
+    padding:20px;
+    margin-top: 20px;
+}
   
   /*
   Copyright Google LLC. All Rights Reserved.
   Use of this source code is governed by an MIT-style license that
   can be found in the LICENSE file at http://angular.io/license
   */
+
+ 

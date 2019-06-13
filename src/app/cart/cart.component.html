@@ -6,7 +6,13 @@
 
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }} </span>
-  <span>{{ item.price | currency }}</span>
+  <span class="_ml-30">{{ item.price | currency }}</span>
+  <span  class="_ml-30" *ngIf="shipCost">+</span>
+  <span class="_ml-30">  {{shipCost | currency }}</span>
+  <span class="_ml-30" *ngIf="shipCost">=</span>
+  <span class="_ml-30">  {{item.price + shipCost | currency }}</span>
+
+       <span class="_ml-30"><a routerLink="/shipping"> Add Shipping Prices</a></span>
 </div>
 <div *ngIf="items.length===0">No Items in the Cart !</div>
 

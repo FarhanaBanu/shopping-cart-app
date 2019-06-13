@@ -10,7 +10,7 @@ import { CartService } from '../cart.service';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-product; 
+product;
   constructor( private route:ActivatedRoute,
   private cartService:CartService) { }
 
@@ -22,10 +22,9 @@ product;
   });
 
   }
-  
 addToCart(product){
-  this.cartService.noOfItems.emit(5);
+  // this.cartService.noOfItems.emit(5);
   window.alert("your prduct is added to cart");
-  this.cartService.addToCart(product); 
+  this.cartService.addToCart(product);
 }
 }
